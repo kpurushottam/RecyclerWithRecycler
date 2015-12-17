@@ -1,13 +1,28 @@
 package com.krp.android.recyclerwithrecycler.utils;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.krp.android.recyclerwithrecycler.R;
+import com.marcohc.robotocalendar.RobotoCalendarView;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 /**
  * Created by purushottam.kumar on 12/15/2015.
  */
-public final class CalendarDialog extends DialogFragment implements RobotoCalendarListener {
+public final class CalendarDialog extends DialogFragment implements RobotoCalendarView.RobotoCalendarListener {
 
     public static final String TAG = CalendarDialog.class.getSimpleName();
     public static final String FORMAT_SIMPLE_DATE = "dd/MM/yyyy";
@@ -53,7 +68,7 @@ public final class CalendarDialog extends DialogFragment implements RobotoCalend
         if(activity instanceof OnSelectDateListener) {
             dateListener = (OnSelectDateListener) activity;
         } else {
-            Logger.e(TAG, activity.getClass().getSimpleName() +
+            Log.e(TAG, activity.getClass().getSimpleName() +
                     " class must implement " + OnSelectDateListener.class.getSimpleName());
         }
     }
